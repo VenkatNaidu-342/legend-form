@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Legend Form</title>
+  <style>
+    * {
+      font-family: Arial, sans-serif;
+    }
+
+    div {
+      height: 400px;
+      width: 400px;
+      border: 2px solid black;
+      margin: auto;
+      position: relative;
+    }
+
+    p {
+      margin-left: 80px;
+      font-weight: bold;
+    }
+
+    .in {
+      margin-left: 80px;
+      padding: 10px;
+    }
+
+    #btn {
+      width: fit-content;
+      position: absolute;
+      margin-top: 30px;
+      left: 150px;
+      font-size: 16px;
+      background-color: blue;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    #btn:hover {
+      background-color: green;
+      color: white;
+      cursor: pointer;
+    }
+
+    .password-toggle {
+      background-color: transparent;
+      border: none;
+      padding: 5px;
+      cursor: pointer;
+      font-size: 20px;
+      outline: none;
+    }
+
+    @media (max-width: 600px) {
+    div {
+        width: 90%; 
+    }
+
+    p {
+        margin-left: 40px; 
+    }
+
+    .in {
+        margin-left: 40px; 
+    }
+
+    #btn {
+        left: 120px;
+    }
+}
+    
+  </style>
+  <script>
+
+    window.onload = function () {
+      window.alert("Challenge : Try to Click Submit Button without filling the Form");
+    }
+
+    function closeMonkeyEyes() {
+
+      var toggleButton = document.getElementById("toggleButton");
+
+      toggleButton.textContent = "🙈";
+
+    }
+
+    function togglePasswordVisibility() {
+
+      var passwordInput = document.getElementById("b");
+
+      var toggleButton = document.getElementById("toggleButton");
+
+
+      if (passwordInput.type === "password") {
+
+        passwordInput.type = "text";
+
+        toggleButton.textContent = "🙊";
+
+      } else {
+
+        passwordInput.type = "password";
+
+        toggleButton.textContent = "🙈";
+
+      }
+
+    }
+
+    function onButton() {
+      if (a.value == "" || b.value == "") {
+        moveLeftRight();
+        document.getElementById('a').style.border = "3px solid red";
+        document.getElementById('b').style.border = "3px solid red";
+        btn.value = "Fill Data First 😏";
+      } else {
+        document.getElementById('a').style.border = "3px solid green";
+        document.getElementById('b').style.border = "3px solid green";
+        btn.value = "Good now 😁";
+        btn.style.left = "150px"
+      }
+    }
+
+    flag = 1;
+    function moveLeftRight() {
+      if (flag == 1) {
+        btn.style.left = "250px";
+        flag = 2;
+      } else if (flag == 2) {
+        btn.style.left = "30px";
+        flag = 1;
+      }
+    }
+
+  </script>
+</head>
+
+<body>
+  <div>
+    <h1 align="center">Legend Form</h1>
+    <p>Email:</p>
+    <input type="email" name="email" class="in" id="a" placeholder="Enter your email">
+    <p>Password:</p>
+    <input type="password" name="password" class="in" id="b" onclick="closeMonkeyEyes()" placeholder="Enter Password">
+    <button class="password-toggle" id="toggleButton" onclick="togglePasswordVisibility()">🙊</button><br>
+    <input type="submit" value="Submit" id="btn" onmouseenter="onButton()" onclick="alert('Well done 👍')">
+  </div>
+</body>
+
+</html>
